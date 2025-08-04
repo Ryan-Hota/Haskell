@@ -1,0 +1,10 @@
+import qualified Prelude as HaskellSupportPrelude(pure,(<>),init)
+import qualified System.Info as HaskellSupportInfo (os)
+
+::def haskellSupportClearScreen ( HaskellSupportPrelude.pure ( HaskellSupportPrelude.pure ( case HaskellSupportInfo.os of { "mingw32" -> ":!cls" ; _ -> ":!clear" } ) ) )
+
+::def haskellSupportLoad ( \ fileName -> let lastQuoteRemoved "\"" = "" ; lastQuoteRemoved (x:xs) = x:lastQuoteRemoved xs ; lastQuoteRemoved "" = "" ; actual = case fileName of { '\"' : y -> lastQuoteRemoved y ; _ -> fileName } in HaskellSupportPrelude.pure ( "::load " HaskellSupportPrelude.<> actual ) )
+
+::set -XNoMonomorphismRestriction
+
+::set prompt ">>> "
