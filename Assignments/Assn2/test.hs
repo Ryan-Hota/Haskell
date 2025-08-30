@@ -12,7 +12,7 @@ testing =
         and [
             altMerge 123 456 == 142536 ,
             altMerge 472485 573654 == 457723468554 ,
-            altMerge 1 2 == 1 ,
+            altMerge 1 2 == 12 ,
         
             countMaxima id (1, 100) == 1 ,
             countMaxima (\x -> 3) (1, 100) == 100 ,
